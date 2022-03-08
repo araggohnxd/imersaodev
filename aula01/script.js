@@ -38,12 +38,12 @@ function refresh() {
 
 function stepperContent() {
 	for (let i = 1; i <= 4; i++) {
-			document.querySelector(".wrapper").innerHTML += `
-			<div class="stepper">
-				<button class="button" id="increment" onclick="stepper(this, '${i}')">⮝</button>
-				<input class="grade" id="number${i}" type="number" min="0" max="10" value="0" step="1" readonly>
-				<button class="button" id="decrement" onclick="stepper(this, '${i}')">⮟</button>
-			</div>`;
+		document.querySelector(".wrapper").innerHTML += `
+		<div class="stepper">
+			<button class="button" id="increment" onclick="stepper(this, '${i}')">⮝</button>
+			<input class="grade" id="number${i}" type="number" min="0" max="10" value="0" step="1" readonly>
+			<button class="button" id="decrement" onclick="stepper(this, '${i}')">⮟</button>
+		</div>`;
 	}
 }
 
