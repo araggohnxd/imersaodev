@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Imersão Dev | Aula 01</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto⮝Mono:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Calculadora de Média</h1>
+	<div class="fieldset">
+		<h2>Insira suas notas</h2>
+		<div class="wrapper">
+			<div class="stepper">
+				<button class="button" id="increment" onclick="stepper(this, '1')">⮝</button>
+				<input class="grade" id="number1" type="number" min="0" max="10" value="0" step="1" readonly>
+				<button class="button" id="decrement" onclick="stepper(this, '1')">⮟</button>
+			</div>
+
+			<div class="stepper">
+				<button class="button" id="increment" onclick="stepper(this, '2')">⮝</button>
+				<input class="grade" id="number2" type="number" min="0" max="10" value="0" step="1" readonly>
+				<button class="button" id="decrement" onclick="stepper(this, '2')">⮟</button>
+			</div>
+
+			<div class="stepper">
+				<button class="button" id="increment" onclick="stepper(this, '3')">⮝</button>
+				<input class="grade" id="number3" type="number" min="0" max="10" value="0" step="1" readonly>
+				<button class="button" id="decrement" onclick="stepper(this, '3')">⮟</button>
+			</div>
+
+			<div class="stepper">
+				<button class="button" id="increment" onclick="stepper(this, '4')">⮝</button>
+				<input class="grade" id="number4" type="number" min="0" max="10" value="0" step="1" readonly>
+				<button class="button" id="decrement" onclick="stepper(this, '4')">⮟</button>
+			</div>
+		</div>
+		<button class="button" id="submit" type="submit" onclick="calcMean()">Calcular média</button>
+	</div>
+	<a id="alura" href="https://www.alura.com.br/" target="_blank"><img src="../imersaodev.svg" alt="Logo da Imersão Dev"></a>
+	<script src="script.js"></script>
+</body>
+</html>
