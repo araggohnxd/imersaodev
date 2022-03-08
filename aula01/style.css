@@ -29,16 +29,20 @@ html {
 	justify-content: center;
 	font-family: "Roboto Mono", monospace;
 	font-weight: 300;
-	color: white;
 	padding-top: clamp(50px, 15vh, 150px);
+	color: white;
 }
 
 h1 {
+	margin-bottom: 50px;
 	font-weight: 300;
-	text-shadow: 5px 5px 6px rgba(0 0 0 / .7);
 	font-size: clamp(2em, 6vw, 4em);
 	text-align: center;
-	margin-bottom: 50px;
+	text-shadow: 5px 5px 6px rgba(0 0 0 / .7);
+}
+
+h2 {
+	font-size: clamp(1em, 4vw, 1.5em);
 }
 
 .fieldset {
@@ -49,13 +53,9 @@ h1 {
 	padding-block: clamp(20px, 4vw, 50px);
 	margin: auto;
 	width: min(75vw, 600px);
+	gap: 50px;
 	background: rgba(0 0 0 / .2);
 	border-radius: var(--var-border-radius);
-	text-align: center;
-}
-
-.fieldset > * {
-	margin-bottom: 50px;
 }
 
 .wrapper {
@@ -65,22 +65,20 @@ h1 {
 }
 
 .stepper {
-	position: relative;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 	width: clamp(50px, 20%, 80px);
 	border-radius: var(--var-border-radius);
-	overflow: hidden;
 }
 
 .button {
 	border: none;
 	color: inherit;
 	font: inherit;
-	display: inline-block;
 	cursor: pointer;
-	background: var(--var-clr-purple-dark);
 	padding: 5px 10px;
+	background: var(--var-clr-purple-dark);
 	transition: transform ease-in 50ms;
 }
 
@@ -92,10 +90,9 @@ h1 {
 	width: min(75%, 500px);
 	padding-block: 10px;
 	font-weight: 700;
-	font-size: 1.5em;
+	font-size: clamp(1em, 4vw, 1.5em);
 	background: var(--var-clr-purple-light);
 	border-radius: var(--var-border-radius);
-	margin-bottom: 0;
 }
 
 .grade {
