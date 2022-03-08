@@ -3,6 +3,8 @@
 	--var-clr-purple-dark: #291B3E;
 	--var-clr-gradient: linear-gradient(to bottom, var(--var-clr-purple-light), var(--var-clr-purple-dark));
 	--var-border-radius: 7px;
+	--var-font-clamp-medium: clamp(1.1em, 3vw, 1.5em);
+	--var-font-clamp-big: clamp(2em, 6vw, 4em);
 }
 
 *,
@@ -36,13 +38,13 @@ html {
 h1 {
 	margin-bottom: 50px;
 	font-weight: 300;
-	font-size: clamp(2em, 6vw, 4em);
+	font-size: var(--var-font-clamp-big);
 	text-align: center;
 	text-shadow: 5px 5px 6px rgba(0 0 0 / .7);
 }
 
 h2 {
-	font-size: clamp(1em, 4vw, 1.5em);
+	font-size: var(--var-font-clamp-medium);
 }
 
 .fieldset {
@@ -90,7 +92,7 @@ h2 {
 	width: min(75%, 500px);
 	padding-block: 10px;
 	font-weight: 700;
-	font-size: clamp(1em, 4vw, 1.5em);
+	font-size: var(--var-font-clamp-medium);
 	background: var(--var-clr-purple-light);
 	border-radius: var(--var-border-radius);
 }
@@ -100,7 +102,7 @@ h2 {
 	color: inherit;
 	font: inherit;
 	background: var(--var-clr-purple-light);
-	font-size: clamp(2em, 5vw, 3.5em);
+	font-size: var(--var-font-clamp-big);
 	text-align: center;
 }
 
