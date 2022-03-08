@@ -1,0 +1,115 @@
+:root {
+	--var-clr-purple-light: #8A2BE2;
+	--var-clr-purple-dark: #291B3E;
+	--var-clr-gradient: linear-gradient(to bottom, var(--var-clr-purple-light), var(--var-clr-purple-dark));
+	--var-border-radius: 7px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+html {
+	background: var(--var-clr-gradient);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	font-family: "Roboto Mono", monospace;
+	font-weight: 300;
+	color: white;
+	padding-top: clamp(50px, 15vh, 150px);
+}
+
+h1 {
+	font-weight: 300;
+	text-shadow: 5px 5px 6px rgba(0 0 0 / .7);
+	font-size: clamp(2em, 6vw, 4em);
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.fieldset {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-inline: clamp(7px, 2vw, 20px);
+	padding-block: clamp(20px, 4vw, 50px);
+	margin: auto;
+	width: min(75vw, 600px);
+	background: rgba(0 0 0 / .2);
+	border-radius: var(--var-border-radius);
+	text-align: center;
+}
+
+.fieldset > * {
+	margin-bottom: 50px;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	width: min(90%, 500px);
+}
+
+.stepper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: clamp(50px, 20%, 80px);
+	border-radius: var(--var-border-radius);
+	overflow: hidden;
+}
+
+.button {
+	border: none;
+	color: inherit;
+	font: inherit;
+	display: inline-block;
+	cursor: pointer;
+	background: var(--var-clr-purple-dark);
+	padding: 5px 10px;
+	transition: transform ease-in 50ms;
+}
+
+.button:active {
+	transform: scale(.95);
+}
+
+#submit {
+	width: min(75%, 500px);
+	padding-block: 10px;
+	font-weight: 700;
+	font-size: 1.5em;
+	background: var(--var-clr-purple-light);
+	border-radius: var(--var-border-radius);
+	margin-bottom: 0;
+}
+
+.grade {
+	border: none;
+	color: inherit;
+	font: inherit;
+	background: var(--var-clr-purple-light);
+	font-size: clamp(2em, 5vw, 3.5em);
+	text-align: center;
+}
+
+#alura {
+	position: absolute;
+	bottom: -30px;
+	right: -160px;
+	transform: scale(.3);
+}
