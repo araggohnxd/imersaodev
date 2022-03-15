@@ -1,7 +1,10 @@
 :root {
 	--var-clr-purple-light: #8A2BE2;
 	--var-clr-purple-dark: #291B3E;
+	--var-clr-purple-light-alpha: rgba(138 43 226 / .5);
+	--var-clr-purple-dark-alpha: rgba(41 27 62 / .5);
 	--var-clr-gradient: linear-gradient(to bottom, var(--var-clr-purple-light), var(--var-clr-purple-dark));
+	--var-clr-gradient-alpha: linear-gradient(to bottom, var(--var-clr-purple-light-alpha), var(--var-clr-purple-dark-alpha));
 	--var-border-radius: 7px;
 	--var-font-clamp-medium: clamp(1.1em, 3vw, 1.5em);
 	--var-font-clamp-big: clamp(2em, 6vw, 4em);
@@ -13,6 +16,7 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	color: white;
 }
 
 input::-webkit-outer-spin-button,
@@ -24,6 +28,16 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	  -webkit-user-select: none; /* Safari */
+	   -khtml-user-select: none; /* Konqueror HTML */
+		 -moz-user-select: none; /* Old versions of Firefox */
+		  -ms-user-select: none; /* Internet Explorer/Edge */
+			  user-select: none; /* Non-prefixed version, currently
+									supported by Chrome, Edge, Opera and Firefox */
+}
+
 html {
 	background: var(--var-clr-gradient);
 	min-height: 100vh;
@@ -31,8 +45,7 @@ html {
 	justify-content: center;
 	font-family: "Roboto Mono", monospace;
 	font-weight: 300;
-	padding-top: clamp(50px, 15vh, 150px);
-	color: white;
+	padding-top: 30px;
 }
 
 h1 {
@@ -45,4 +58,40 @@ h1 {
 
 h2 {
 	font-size: var(--var-font-clamp-medium);
+}
+
+.fieldset {
+	display: flex;
+	flex-direction: column;
+	padding-inline: clamp(7px, 2vw, 20px);
+	padding-block: clamp(20px, 4vw, 50px);
+	margin: auto;
+	width: min(75vw, 600px);
+	background: rgba(0 0 0 / .2);
+	border-radius: var(--var-border-radius);
+}
+
+.button {
+	border: none;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	padding: 10px;
+	width: min(75%, 500px);
+	font-weight: 700;
+	font-size: var(--var-font-clamp-medium);
+	background: var(--var-clr-purple-light);
+	border-radius: var(--var-border-radius);
+	transition: transform ease-in 50ms;
+}
+
+.button:active {
+	transform: scale(.95);
+}
+
+#alura {
+	position: absolute;
+	bottom: -30px;
+	right: -160px;
+	transform: scale(.3);
 }
