@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Imersão Dev | Aula 02</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="../base.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Conversor de Moeda</h1>
+	<form class="fieldset">
+		<h2>Insira o valor a ser convertido</h2>
+
+		<div class="coin-wrapper top">
+			<select class="coin-label top" onchange="setCurrency(this)">
+				<option value="1">Dólar (USD)</option>
+				<option value="2">Real (BRL)</option>
+				<option value="3">Euro (EUR)</option>
+				<option value="4">Libra (GBP)</option>
+				<option value="5">Iene (JPY)</option>
+			</select>
+			<div class="coin-flex top">
+				<span class="coin-currency top noselect">$</span>
+				<input class="coin-input top" type="number" name="dollar" min="0" step="any" placeholder="Cotação: 5,16">
+			</div>
+		</div>
+
+		<button class="button swap" id="swap" type="button" onclick="swapCoins(this)"></button>
+
+		<div class="coin-wrapper bot">
+			<select class="coin-label bot" onchange="setCurrency(this)">
+				<option value="1">Dólar (USD)</option>
+				<option value="2">Real (BRL)</option>
+				<option value="3">Euro (EUR)</option>
+				<option value="4">Libra (GBP)</option>
+				<option value="5">Iene (JPY)</option>
+			</select>
+			<div class="coin-flex bot">
+				<span class="coin-currency bot noselect">R$</span>
+				<input class="coin-input bot" type="number" name="real" min="0" step="any" placeholder="Cotação: 1,00" readonly>
+			</div>
+		</div>
+
+		<input class="button" id="submit" type="submit" onclick="convert()" value="Converter">
+	</form>
+	<a id="alura" href="https://www.alura.com.br/" target="_blank"><img src="../imersaodev.svg" alt="Logo da Imersão Dev"></a>
+	<script src="script.js"></script>
+</body>
+</html>

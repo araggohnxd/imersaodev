@@ -1,0 +1,57 @@
+.fieldset {
+	align-items: center;
+	text-align: center;
+	gap: 50px;
+}
+
+.coin-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: min(75%, 500px);
+}
+
+.coin-label {
+	font-size: 1.25em;
+	border: none;
+	padding: 5px 10px;
+	background: var(--var-clr-purple-light);
+	border-top-left-radius: var(--var-border-radius);
+	border-top-right-radius: var(--var-border-radius);
+}
+
+.coin-flex {
+	display: flex;
+	font-size: 1.7em;
+	height: 50px;
+	border-bottom-left-radius: var(--var-border-radius);
+	border-bottom-right-radius: var(--var-border-radius);
+	overflow: hidden;
+}
+
+.coin-currency {
+	border-right: 1px solid var(--var-clr-purple-light);
+	padding: 5px 15px;
+	background: var(--var-clr-purple-light-alpha);
+}
+
+.coin-input {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 500;
+	width: 100%;
+	border: none;
+	padding: 5px 15px;
+	background: var(--var-clr-purple-light-alpha);
+}
+
+.coin-input, .coin-label {
+	outline-offset: -3px;
+}
+
+.swap {
+	width: 70px;
+	aspect-ratio: 1;
+	background: url("swap-arrows.png") center no-repeat;
+	background-size: 100%;
+}
