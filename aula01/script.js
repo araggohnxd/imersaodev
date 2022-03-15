@@ -1,10 +1,12 @@
+let form = document.querySelector(".fieldset");
+
 function stepper(btn, num) {
 	let grade = document.querySelector("#number" + num);
 	let id = btn.getAttribute("id");
 	let min = grade.getAttribute("min");
 	let max = grade.getAttribute("max");
 	let step = grade.getAttribute("step");
-	let val = grade.getAttribute("value");
+	let val = grade.value;
 	let calcStep = (id == "increment") ? (step * 1) : (step * -1);
 	let newValue = parseInt(val) + calcStep;
 	if (newValue >= min && newValue <= max)
@@ -16,7 +18,7 @@ function calcMean() {
 	let status;
 	for (let i = 1; i <= 4; i++) {
 		let grade = document.querySelector("#number" + i);
-		total += parseInt(grade.getAttribute("value"));
+		total += parseInt(grade.value);
 	}
 	if ((total / 4) >= 6)
 		status = "aprovado!";
@@ -40,11 +42,15 @@ function stepperContent() {
 	for (let i = 1; i <= 4; i++) {
 		document.querySelector(".wrapper").innerHTML += `
 		<div class="stepper">
-			<button class="button" id="increment" onclick="stepper(this, '${i}')">⮝</button>
+			<button class="button spin" id="increment" onclick="stepper(this, '${i}')">⮝</button>
 			<input class="grade" id="number${i}" type="number" min="0" max="10" value="0" step="1" readonly>
-			<button class="button" id="decrement" onclick="stepper(this, '${i}')">⮟</button>
+			<button class="button spin" id="decrement" onclick="stepper(this, '${i}')">⮟</button>
 		</div>`;
 	}
 }
+
+form.addEventListener("submit", function(event) {
+	event.preventDefault();
+});
 
 window.onload = stepperContent();

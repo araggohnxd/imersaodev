@@ -1,14 +1,6 @@
 .fieldset {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
-	padding-inline: clamp(7px, 2vw, 20px);
-	padding-block: clamp(20px, 4vw, 50px);
-	margin: auto;
-	width: min(75vw, 600px);
 	gap: 50px;
-	background: rgba(0 0 0 / .2);
-	border-radius: var(--var-border-radius);
 }
 
 .wrapper {
@@ -25,29 +17,6 @@
 	border-radius: var(--var-border-radius);
 }
 
-.button {
-	border: none;
-	color: inherit;
-	font: inherit;
-	cursor: pointer;
-	padding: 5px 10px;
-	background: var(--var-clr-purple-dark);
-	transition: transform ease-in 50ms;
-}
-
-.button:active {
-	transform: scale(.95);
-}
-
-#submit {
-	width: min(75%, 500px);
-	padding-block: 10px;
-	font-weight: 700;
-	font-size: var(--var-font-clamp-medium);
-	background: var(--var-clr-purple-light);
-	border-radius: var(--var-border-radius);
-}
-
 .grade {
 	border: none;
 	color: inherit;
@@ -57,9 +26,9 @@
 	text-align: center;
 }
 
-#alura {
-	position: absolute;
-	bottom: -30px;
-	right: -160px;
-	transform: scale(.3);
+.spin {
+	padding: 0;
+	width: 100%;
+	background: var(--var-clr-purple-dark);
+	border-radius: 0px;;
 }
