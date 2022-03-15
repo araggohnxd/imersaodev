@@ -90,7 +90,7 @@ function setCurrency(droplabel) {
 	switch (currency) {
 		case 0: //dollar
 			currencySymbol.textContent = "$";
-			currencyInput.setAttribute("placeholder", "Cotação: 5,12");
+			currencyInput.setAttribute("placeholder", "Cotação: 5,16");
 			break;
 		case 1: //real
 			currencySymbol.textContent = "R$";
@@ -102,7 +102,7 @@ function setCurrency(droplabel) {
 			break;
 		case 3: //pound
 			currencySymbol.textContent = "£";
-			currencyInput.setAttribute("placeholder", "Cotação: 6,88");
+			currencyInput.setAttribute("placeholder", "Cotação: 6,73");
 			break;
 		case 4: //yen
 			currencySymbol.textContent = "¥";
