@@ -3,6 +3,13 @@ let inputTop = document.querySelector(".coin-input.top");
 let inputBot = document.querySelector(".coin-input.bot");
 let labelTop = document.querySelector(".coin-label.top");
 let labelBot = document.querySelector(".coin-label.bot");
+const symbolMap = {
+	eur: '€',
+	usd: '$',
+	brl: 'R$',
+	jpy: '¥',
+	gbp: '£'
+};
 
 function swapCoins(swapButton) {
 	let wrapperTop = document.querySelector(".coin-wrapper.top");
@@ -11,6 +18,8 @@ function swapCoins(swapButton) {
 	form.insertBefore(wrapperTop, wrapperBot);
 	form.insertBefore(wrapperBot, swapButton);
 	setAttributes();
+	document.querySelector(".coin-input.top").setAttribute("placeholder", "1.00");
+	setCurrency(document.querySelector(".coin-label.top"));
 }
 
 function setAttributes() {
@@ -33,81 +42,37 @@ function convert() {
 	inputBot = document.querySelector(".coin-input.bot");
 	labelTop = document.querySelector(".coin-label.top");
 	labelBot = document.querySelector(".coin-label.bot");
-	let topType = labelTop.selectedIndex;
-	let botType = labelBot.selectedIndex;
+	let topCurrencyType = labelTop.value;
+	let botCurrencyType = labelBot.value;
 	let toBeConverted = inputTop.value;
-	let convertedValue;
 
-	if (botType == topType) {
-		inputBot.value = toBeConverted;
-		return (0);
-	}
-	convertedValue = backToType(typeToBRL(inputTop.value, topType), botType);
-	inputBot.value = convertedValue.toFixed(2);
-}
-
-function typeToBRL(value, type) {
-	switch (type) {
-		case 0: //dollar
-			value *= 5.1642;
-			break;
-		case 2: //euro
-			value *= 5.6542;
-			break;
-		case 3: //pound
-			value *= 6.7330;
-			break;
-		case 4: //yen
-			value *= 0.04364;
-	}
-	return (value);
-}
-
-function backToType(value, type) {
-	switch (type) {
-		case 0: //dollar
-			value *= 0.1936;
-			break;
-		case 2: //euro
-			value *= 0.1768;
-			break;
-		case 3: //pound
-			value *= 0.1484;
-			break;
-		case 4: //yen
-			value *= 22.9145;
-	}
-	return (value);
+	fetch(`https://v6.exchangerate-api.com/v6/bb700732299855ed1af4dc16/pair/${topCurrencyType}/${botCurrencyType}`)
+		.then((response) => response.json())
+		.then((data) => {
+			const exchangeRate = data.conversion_rate;
+			let convertedValue = (parseFloat(toBeConverted) * exchangeRate).toFixed(2);
+			inputBot.value = convertedValue;
+		});
 }
 
 function setCurrency(droplabel) {
+	let currencySymbol = droplabel.nextElementSibling.childNodes[1];
+	let currencyType = droplabel.value;
+	let currencyOutput = document.querySelector(".coin-input.bot");
+	let oppositeCurrency = document.querySelector(".coin-label.bot").value;
+
 	inputTop.value = "";
 	inputBot.value = "";
-	let currency = droplabel.selectedIndex;
-	let currencySymbol = droplabel.nextElementSibling.childNodes[1];
-	let currencyInput = currencySymbol.nextElementSibling;
-
-	switch (currency) {
-		case 0: //dollar
-			currencySymbol.textContent = "$";
-			currencyInput.setAttribute("placeholder", "Cotação: 5,16");
-			break;
-		case 1: //real
-			currencySymbol.textContent = "R$";
-			currencyInput.setAttribute("placeholder", "Cotação: 1,00");
-			break;
-		case 2: //euro
-			currencySymbol.textContent = "€";
-			currencyInput.setAttribute("placeholder", "Cotação: 5,65");
-			break;
-		case 3: //pound
-			currencySymbol.textContent = "£";
-			currencyInput.setAttribute("placeholder", "Cotação: 6,73");
-			break;
-		case 4: //yen
-			currencySymbol.textContent = "¥";
-			currencyInput.setAttribute("placeholder", "Cotação: 0,044");
+	if (droplabel.classList[1] === "bot") {
+		currencyType = document.querySelector(".coin-label.top").value;
 	}
+	currencySymbol.textContent = symbolMap[currencyType];
+	fetch(`https://v6.exchangerate-api.com/v6/7e9f327d54b961cdcdefbb39/pair/${currencyType}/${oppositeCurrency}`)
+	.then((response) => response.json())
+	.then((data) => {
+		const exchangeRate = data.conversion_rate;
+		currencyOutput.setAttribute("placeholder", exchangeRate.toFixed(2));
+	});
 }
 
 form.addEventListener("submit", function(event) {
@@ -117,6 +82,5 @@ form.addEventListener("submit", function(event) {
 window.onload = () => {
 	labelTop.selectedIndex = 0;
 	labelBot.selectedIndex = 1;
-	inputTop.value = "";
-	inputBot.value = "";
+	setCurrency(labelTop);
 }
