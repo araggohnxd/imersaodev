@@ -19,15 +19,15 @@
 
 		<div class="coin-wrapper top">
 			<select class="coin-label top" onchange="setCurrency(this)">
-				<option value="1">Dólar (USD)</option>
-				<option value="2">Real (BRL)</option>
-				<option value="3">Euro (EUR)</option>
-				<option value="4">Libra (GBP)</option>
-				<option value="5">Iene (JPY)</option>
+				<option value="usd">Dólar (USD)</option>
+				<option value="brl">Real (BRL)</option>
+				<option value="eur">Euro (EUR)</option>
+				<option value="gbp">Libra (GBP)</option>
+				<option value="jpy">Iene (JPY)</option>
 			</select>
 			<div class="coin-flex top">
 				<span class="coin-currency top noselect">$</span>
-				<input class="coin-input top" type="number" name="dollar" min="0" step="any" placeholder="Cotação: 5,16">
+				<input class="coin-input top" type="number" name="dollar" min="0" step="any" placeholder="1.00">
 			</div>
 		</div>
 
@@ -35,15 +35,15 @@
 
 		<div class="coin-wrapper bot">
 			<select class="coin-label bot" onchange="setCurrency(this)">
-				<option value="1">Dólar (USD)</option>
-				<option value="2">Real (BRL)</option>
-				<option value="3">Euro (EUR)</option>
-				<option value="4">Libra (GBP)</option>
-				<option value="5">Iene (JPY)</option>
+				<option value="usd">Dólar (USD)</option>
+				<option value="brl">Real (BRL)</option>
+				<option value="eur">Euro (EUR)</option>
+				<option value="gbp">Libra (GBP)</option>
+				<option value="jpy">Iene (JPY)</option>
 			</select>
 			<div class="coin-flex bot">
 				<span class="coin-currency bot noselect">R$</span>
-				<input class="coin-input bot" type="number" name="real" min="0" step="any" placeholder="Cotação: 1,00" readonly>
+				<input class="coin-input bot" type="number" name="real" min="0" step="any" placeholder="" readonly>
 			</div>
 		</div>
 
