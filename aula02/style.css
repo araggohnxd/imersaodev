@@ -49,3 +49,8 @@
 	background: url("swap-arrows.png") center no-repeat;
 	background-size: 100%;
 }
+
+.coin-input.bot {
+	outline: none;
+	cursor: default;
+}
