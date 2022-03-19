@@ -63,10 +63,10 @@ function setCurrency(droplabel) {
 
 	inputTop.value = "";
 	inputBot.value = "";
+	currencySymbol.textContent = symbolMap[currencyType];
 	if (droplabel.classList[1] === "bot") {
 		currencyType = document.querySelector(".coin-label.top").value;
 	}
-	currencySymbol.textContent = symbolMap[currencyType];
 	fetch(`https://v6.exchangerate-api.com/v6/7e9f327d54b961cdcdefbb39/pair/${currencyType}/${oppositeCurrency}`)
 	.then((response) => response.json())
 	.then((data) => {
